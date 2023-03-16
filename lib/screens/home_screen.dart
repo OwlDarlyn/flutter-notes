@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Consumer<NoteCollection>(builder: (context, notes, child) {
           if (notes.count == 0) {
-            return Text('Notes');
+            return Text('Notes Flutter');
           }
           return Text('Notes (${notes.count})');
         }),
@@ -39,6 +39,20 @@ class HomeScreen extends StatelessWidget {
           // debugPrint(note.id.toString());
         },
         child: Icon(Icons.add),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.teal,
+        selectedItemColor: Colors.white,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.calendar_month), label: 'Calendar'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.settings), label: 'Settings'),
+        ],
+        onTap: (_) {},
       ),
     );
   }

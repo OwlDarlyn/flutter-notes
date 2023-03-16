@@ -17,9 +17,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Notes',
+      title: 'Notes Futter',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.teal),
+        appBarTheme: AppBarTheme(
+            backgroundColor: Colors.teal, foregroundColor: Colors.white),
       ),
       home: HomeScreen(),
     );
