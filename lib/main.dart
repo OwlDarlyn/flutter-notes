@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_notes/widgets/bottom_nav.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/note_collection.dart';
@@ -19,11 +20,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Notes Futter',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.teal),
-        appBarTheme: AppBarTheme(
-            backgroundColor: Colors.teal, foregroundColor: Colors.white),
+        colorScheme: ColorScheme.fromSwatch().copyWith(primary: Colors.black87),
+        // appBarTheme: AppBarTheme(
+        //     backgroundColor: Colors.teal, foregroundColor: Colors.white),
       ),
-      home: HomeScreen(),
+      home: BottomNavBar(),
     );
   }
 }

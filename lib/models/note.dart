@@ -20,7 +20,7 @@ class Note {
   }
 
   int get words {
-    if (body.length == 0) {
+    if (body.isEmpty) {
       return 0;
     }
     return body.split(' ').length;
