@@ -8,6 +8,7 @@ import '../screens/note_screen.dart';
 import '../models/note.dart';
 import '../providers/note_collection.dart';
 import '../widgets/bottom_nav_widget.dart';
+import '../widgets/date_picker_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -21,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 3, vsync: this);
+    DatePickerRow _datePickerRow = DatePickerRow(DateTime.now());
 
     return Scaffold(
       body: Column(
@@ -58,7 +60,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             ),
           ),
           const SizedBox(height: 20),
-          Container(), // date row widget
+          Container(
+            child: _datePickerRow,
+          ),
           const SizedBox(height: 20),
           Container(
             child: Align(
