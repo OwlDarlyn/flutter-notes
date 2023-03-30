@@ -26,14 +26,34 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         children: [
           const SizedBox(height: 30),
           Container(
-            margin: const EdgeInsets.only(top: 20, left: 20),
+            margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
             alignment: Alignment.bottomLeft,
-            child: const Text(
-              'Notes',
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  'Hi, Darlyn!',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Row(
+                  children: const [
+                    Icon(
+                      Icons.search,
+                      size: 25,
+                      color: Colors.black,
+                    ),
+                    SizedBox(width: 20),
+                    Icon(
+                      Icons.notifications,
+                      size: 25,
+                      color: Colors.black,
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
           const SizedBox(height: 20),
