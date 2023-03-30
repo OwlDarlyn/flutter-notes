@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_notes/widgets/bottom_nav.dart';
+import 'package:flutter_notes/widgets/bottom_nav_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/note_collection.dart';

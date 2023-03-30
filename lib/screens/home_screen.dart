@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
+import 'package:date_picker_timeline/date_picker_timeline.dart';
 
 import '../screens/note_screen.dart';
 import '../models/note.dart';
 import '../providers/note_collection.dart';
-import '../widgets/bottom_nav.dart';
+import '../widgets/bottom_nav_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -56,6 +57,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               ],
             ),
           ),
+          const SizedBox(height: 20),
+          Container(),
           const SizedBox(height: 20),
           Container(
             child: Align(
