@@ -7,6 +7,6 @@ class StatisticsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Text('this is search'));
+    return SafeArea(child: Text('this is statistics'));
   }
 }

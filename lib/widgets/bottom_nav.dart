@@ -39,7 +39,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
         unselectedItemColor: Colors.grey,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.query_stats), label: 'Statistics'),
           BottomNavigationBarItem(
               icon: Icon(Icons.calendar_month), label: 'Calendar'),
           BottomNavigationBarItem(
