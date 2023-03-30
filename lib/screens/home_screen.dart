@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             ),
           ),
           const SizedBox(height: 20),
-          Container(),
+          Container(), // date row widget
           const SizedBox(height: 20),
           Container(
             child: Align(
