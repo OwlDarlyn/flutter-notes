@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../screens/calendar_screen.dart';
 import '../screens/home_screen.dart';
-import '../screens/search_screen.dart';
+import '../screens/statistics_screen.dart';
 import '../screens/settings_screen.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -13,7 +13,7 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   List<Widget> screens = [
     HomeScreen(),
-    SearchScreen(),
+    StatisticsScreen(),
     CalendarScreen(),
     SettingsScreen(),
   ];
@@ -21,7 +21,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
   int selectedIndex = 0;
 
   void onTap(int index) {
-    selectedIndex = index;
+    setState(() {
+      selectedIndex = index;
+    });
   }
 
   @override
@@ -34,7 +36,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         backgroundColor: Colors.white,
         selectedItemColor: Colors.black87,
         selectedFontSize: 15,
-        unselectedItemColor: Colors.grey[700],
+        unselectedItemColor: Colors.grey,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
