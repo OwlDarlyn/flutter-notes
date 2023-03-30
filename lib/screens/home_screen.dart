@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         children: [
           const SizedBox(height: 30),
           Container(
-            padding: const EdgeInsets.only(top: 20, left: 20),
+            margin: const EdgeInsets.only(top: 20, left: 20),
             alignment: Alignment.bottomLeft,
             child: const Text(
               'Notes',
@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 labelPadding: const EdgeInsets.only(left: 20, right: 20),
                 controller: _tabController,
                 labelColor: Colors.black,
-                unselectedLabelColor: Colors.grey[400],
+                unselectedLabelColor: Colors.grey,
                 isScrollable: true,
                 indicatorSize: TabBarIndicatorSize.label,
                 indicator: CircleTabIdicator(color: Colors.black87, radius: 4),
@@ -82,6 +82,70 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 Tab(text: 'You'),
                 Tab(text: 'Bye'),
               ],
+            ),
+          ),
+          const SizedBox(height: 20),
+          Container(
+            margin: const EdgeInsets.only(left: 20, right: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                Text(
+                  'To-Do Tasks',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  'See all',
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 20),
+          Container(
+            margin: const EdgeInsets.only(left: 20),
+            child: Consumer<NoteCollection>(
+              builder: (context, notes, chils) {
+                var allNotes = notes.allNotes;
+
+                if (allNotes.length == 0) {
+                  return Center(
+                    child: Text('No notes is here'),
+                  );
+                }
+                return ListView.builder(
+                  itemBuilder: (context, index) {
+                    var note = allNotes[index];
+
+                    return Dismissible(
+                      key: Key(note.id),
+                      onDismissed: (direction) {
+                        Provider.of<NoteCollection>(context, listen: false)
+                            .deleteNote(note.id);
+                      },
+                      background: Container(color: Colors.red),
+                      child: ListTile(
+                        title: Text(note.noteBody),
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => NoteScreen(note: note),
+                            ),
+                          );
+                        },
+                      ),
+                    );
+                  },
+                  itemCount: allNotes.length,
+                );
+              },
             ),
           ),
         ],
