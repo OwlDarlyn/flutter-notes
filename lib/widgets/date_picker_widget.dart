@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'package:date_picker_timeline/date_picker_timeline.dart';
 import 'package:date_picker_timeline/gestures/tap.dart';
 import 'package:date_picker_timeline/extra/style.dart';
 import 'package:flutter_notes/widgets/date_widget.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 import '../models/app_color.dart';
+import '../models/text_style.dart';
 
 class DatePickerRow extends StatefulWidget {
   final DateTime startDate;

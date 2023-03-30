@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/app_color.dart';
+import '../models/dimen.dart';
 
 const TextStyle defaultMonthTextStyle = TextStyle(
   color: AppColors.defaultMonthColor,
@@ -19,11 +20,3 @@ const TextStyle defaultDayTextStyle = TextStyle(
   fontSize: Dimen.dayTextSize,
   fontWeight: FontWeight.w500,
 );
-
-class Dimen {
-  Dimen._();
-
-  static const double dateTextSize = 15;
-  static const double dayTextSize = 11;
-  static const double monthTextSize = 11;
-}
