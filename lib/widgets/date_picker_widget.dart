@@ -29,8 +29,8 @@ class DatePickerRow extends StatefulWidget {
   const DatePickerRow(
     this.startDate, {
     super.key,
-    this.width = 60,
-    this.height = 80,
+    this.width = 50,
+    this.height = 60,
     this.controller,
     this.monthTextStyle = defaultMonthTextStyle,
     this.dayTextStyle = defaultDayTextStyle,
@@ -41,7 +41,7 @@ class DatePickerRow extends StatefulWidget {
     this.initialSelectedDate,
     this.activeDates,
     this.inactiveDates,
-    this.daysCount = 500,
+    this.daysCount = 14,
     this.onDateChange,
     this.locale = "en_US",
   }) : assert(

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
-import 'package:date_picker_timeline/date_picker_timeline.dart';
 
 import '../screens/note_screen.dart';
 import '../models/note.dart';
@@ -22,7 +21,17 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 3, vsync: this);
-    DatePickerRow _datePickerRow = DatePickerRow(DateTime.now());
+    DatePickerRow _datePickerRow = DatePickerRow(
+      DateTime.now(),
+      initialSelectedDate: DateTime.now(),
+      selectionColor: Colors.black,
+      selectedTextColor: Colors.white,
+      onDateChange: (date) {
+        setState(() {
+          var _selectedValue = date;
+        });
+      },
+    );
 
     return Scaffold(
       body: Column(
@@ -61,9 +70,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           ),
           const SizedBox(height: 20),
           Container(
-            child: _datePickerRow,
+            margin: EdgeInsets.only(left: 20, right: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [_datePickerRow],
+            ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 10),
           Container(
             child: Align(
               alignment: Alignment.centerLeft,
@@ -83,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               ),
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 10),
           Container(
             padding: const EdgeInsets.only(left: 20),
             height: 300,
