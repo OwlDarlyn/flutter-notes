@@ -4,9 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
 
 import '../screens/note_screen.dart';
-import '../models/note.dart';
 import '../providers/note_collection.dart';
-import '../widgets/bottom_nav_widget.dart';
 import '../widgets/date_picker_widget.dart';
 
 class HomeScreen extends StatefulWidget {

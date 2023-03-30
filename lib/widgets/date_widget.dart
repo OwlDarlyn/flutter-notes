@@ -35,19 +35,25 @@ class DateWidget extends StatelessWidget {
         ),
         child: Padding(
           padding: const EdgeInsets.all(8),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                  DateFormat("MMM", locale).format(date).toUpperCase(), // Month
-                  style: monthTextStyle),
-              Text(date.day.toString(), // Date
-                  style: dateTextStyle),
-              Text(
-                  DateFormat("E", locale).format(date).toUpperCase(), // WeekDay
-                  style: dayTextStyle),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                    DateFormat("MMM", locale)
+                        .format(date)
+                        .toUpperCase(), // Month
+                    style: monthTextStyle),
+                Text(date.day.toString(), // Date
+                    style: dateTextStyle),
+                Text(
+                    DateFormat("E", locale)
+                        .format(date)
+                        .toUpperCase(), // WeekDay
+                    style: dayTextStyle),
+              ],
+            ),
           ),
         ),
       ),

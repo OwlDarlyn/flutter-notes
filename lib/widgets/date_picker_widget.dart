@@ -6,7 +6,7 @@ import 'package:flutter_notes/widgets/date_widget.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 import '../models/app_color.dart';
-import '../models/text_style.dart';
+// import '../models/text_style.dart';
 
 class DatePickerRow extends StatefulWidget {
   final DateTime startDate;
@@ -30,7 +30,7 @@ class DatePickerRow extends StatefulWidget {
     this.startDate, {
     super.key,
     this.width = 50,
-    this.height = 60,
+    this.height = 70,
     this.controller,
     this.monthTextStyle = defaultMonthTextStyle,
     this.dayTextStyle = defaultDayTextStyle,
