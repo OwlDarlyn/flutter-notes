@@ -30,7 +30,7 @@ class DatePickerRow extends StatefulWidget {
     this.startDate, {
     super.key,
     this.width = 50,
-    this.height = 70,
+    this.height = 80,
     this.controller,
     this.monthTextStyle = defaultMonthTextStyle,
     this.dayTextStyle = defaultDayTextStyle,

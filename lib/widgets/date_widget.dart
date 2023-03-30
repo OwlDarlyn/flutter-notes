@@ -47,6 +47,7 @@ class DateWidget extends StatelessWidget {
                     style: monthTextStyle),
                 Text(date.day.toString(), // Date
                     style: dateTextStyle),
+                const SizedBox(height: 5),
                 Text(
                     DateFormat("E", locale)
                         .format(date)
