@@ -76,22 +76,36 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           ),
           const SizedBox(height: 10),
           Container(
+            margin: const EdgeInsets.only(right: 20),
             child: Align(
               alignment: Alignment.centerLeft,
-              child: TabBar(
-                labelPadding: const EdgeInsets.only(left: 20, right: 20),
-                controller: _tabController,
-                labelColor: Colors.black,
-                unselectedLabelColor: Colors.grey,
-                isScrollable: true,
-                indicatorSize: TabBarIndicatorSize.label,
-                indicator: CircleTabIdicator(color: Colors.black87, radius: 4),
-                tabs: const [
-                  Tab(text: 'Work Projects'),
-                  Tab(text: 'Sports'),
-                  Tab(text: 'Hobby'),
-                ],
-              ),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TabBar(
+                      labelPadding: const EdgeInsets.only(left: 20, right: 20),
+                      controller: _tabController,
+                      labelColor: Colors.black,
+                      unselectedLabelColor: Colors.grey,
+                      isScrollable: true,
+                      indicatorSize: TabBarIndicatorSize.label,
+                      indicator:
+                          CircleTabIdicator(color: Colors.black87, radius: 4),
+                      tabs: const [
+                        Tab(text: 'Work'),
+                        Tab(text: 'Personal'),
+                        Tab(text: 'Home'),
+                      ],
+                    ),
+                    Text(
+                      'See all',
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.grey,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ]),
             ),
           ),
           const SizedBox(height: 10),
