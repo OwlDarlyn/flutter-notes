@@ -3,7 +3,6 @@ import 'package:flutter_notes/widgets/bottom_nav_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/note_collection.dart';
-import '../screens/home_screen.dart';
 
 void main() => runApp(
       ChangeNotifierProvider(
