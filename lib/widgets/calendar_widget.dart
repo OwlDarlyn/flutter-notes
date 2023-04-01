@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import 'package:table_calendar/table_calendar.dart';
-import 'package:syncfusion_flutter_calendar/calendar.dart';
+
+import '../widgets/task_list_widget.dart';
 
 class CalendarWidget extends StatefulWidget {
   const CalendarWidget({super.key});
@@ -23,46 +25,6 @@ class _CalendarWidgetState extends State<CalendarWidget> {
 
   TextStyle dayStyle(FontWeight fontWeight) {
     return const TextStyle(color: Colors.black87, fontWeight: FontWeight.bold);
-  }
-
-  Container taskList(
-      String title, String description, IconData iconImg, Color iconColor) {
-    return Container(
-      padding: const EdgeInsets.only(top: 20),
-      child: Row(
-        children: [
-          Icon(
-            iconImg,
-            color: Colors.black,
-            size: 30,
-          ),
-          Container(
-            padding: const EdgeInsets.only(left: 10, right: 10),
-            width: MediaQuery.of(context).size.width * 0.8,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
-                ),
-                const SizedBox(height: 10),
-                Text(
-                  description,
-                  style: const TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.normal,
-                      color: Colors.black),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
   }
 
   @override
@@ -172,18 +134,17 @@ class _CalendarWidgetState extends State<CalendarWidget> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.black,
-        child: const Icon(
-          Icons.add,
-          color: Colors.white,
+      child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.black,
+          child: const Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
+          onPressed: () => _showAddEventDialog(),
         ),
-        onPressed: () => _showAddEventDialog(),
-      ),
-      body: Container(
-        padding: const EdgeInsets.only(left: 10, right: 10),
-        child: SingleChildScrollView(
+        body: Container(
+          padding: const EdgeInsets.only(left: 10, right: 10),
           child: Column(
             children: [
               TableCalendar(
@@ -241,57 +202,11 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                   }
                 },
               ),
-              // ..._listOfDayEvents(selectedCalendarDate!).map(
-              //   (myEvents) => ListTile(
-              //     leading: const Icon(
-              //       Icons.done,
-              //       color: Colors.black,
-              //     ),
-              //     title: Padding(
-              //       padding: const EdgeInsets.only(bottom: 8.0),
-              //       child: Text('Event Title:   ${myEvents.eventTitle}'),
-              //     ),
-              //     subtitle: Text('Description:   ${myEvents.eventDescp}'),
-              //   ),
-              // ),
-              const SizedBox(height: 10),
-              Container(
-                padding: const EdgeInsets.only(left: 20),
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.55,
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30)),
-                ),
-                child: Stack(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.only(top: 20),
-                          child: Text(
-                            'Today',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        taskList('Task 1', 'This is a description of task 1',
-                            Icons.check_box, Colors.black)
-                      ],
-                    )
-                  ],
-                ),
-              ),
             ],
           ),
         ),
       ),
-    ));
+    );
   }
 }
 
