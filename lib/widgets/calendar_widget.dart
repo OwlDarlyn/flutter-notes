@@ -145,64 +145,122 @@ class _CalendarWidgetState extends State<CalendarWidget> {
         ),
         body: Container(
           padding: const EdgeInsets.only(left: 10, right: 10),
-          child: Column(
-            children: [
-              TableCalendar(
-                firstDay: _initialCalendarDate,
-                lastDay: _lastCalendarDate,
-                focusedDay: _focusedCalendarDate,
-                calendarFormat: CalendarFormat.month,
-                startingDayOfWeek: StartingDayOfWeek.monday,
-                daysOfWeekHeight: 40,
-                rowHeight: 50,
-                eventLoader: _listOfDayEvents,
-                calendarStyle: CalendarStyle(
-                  weekNumberTextStyle: dayStyle(FontWeight.normal),
-                  weekendTextStyle: dayStyle(FontWeight.normal),
-                  // selectedTextStyle: const TextStyle(color: Colors.black),
-                  todayTextStyle: const TextStyle(color: Colors.white),
-                  todayDecoration: const BoxDecoration(
-                      color: Colors.grey, shape: BoxShape.circle),
-                  selectedDecoration: const BoxDecoration(
-                      color: Colors.black, shape: BoxShape.circle),
-                ),
-                daysOfWeekStyle: const DaysOfWeekStyle(
-                  weekdayStyle: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16),
-                  weekendStyle: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16),
-                ),
-                headerStyle: const HeaderStyle(
-                    formatButtonVisible: false,
-                    titleTextStyle: TextStyle(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                TableCalendar(
+                  firstDay: _initialCalendarDate,
+                  lastDay: _lastCalendarDate,
+                  focusedDay: _focusedCalendarDate,
+                  calendarFormat: CalendarFormat.month,
+                  startingDayOfWeek: StartingDayOfWeek.monday,
+                  daysOfWeekHeight: 40,
+                  rowHeight: 50,
+                  eventLoader: _listOfDayEvents,
+                  calendarStyle: CalendarStyle(
+                    weekNumberTextStyle: dayStyle(FontWeight.normal),
+                    weekendTextStyle: dayStyle(FontWeight.normal),
+                    // selectedTextStyle: const TextStyle(color: Colors.black),
+                    todayTextStyle: const TextStyle(color: Colors.white),
+                    todayDecoration: const BoxDecoration(
+                        color: Colors.grey, shape: BoxShape.circle),
+                    selectedDecoration: const BoxDecoration(
+                        color: Colors.black, shape: BoxShape.circle),
+                  ),
+                  daysOfWeekStyle: const DaysOfWeekStyle(
+                    weekdayStyle: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
-                        fontSize: 25),
-                    leftChevronIcon:
-                        Icon(Icons.chevron_left, color: Colors.black),
-                    rightChevronIcon: Icon(
-                      Icons.chevron_right,
-                      color: Colors.black,
-                    )),
-                selectedDayPredicate: (currentSelectedDate) {
-                  return (isSameDay(
-                      selectedCalendarDate!, currentSelectedDate));
-                },
-                onDaySelected: (selectedDay, focusedDay) {
-                  // as per the documentation
-                  if (!isSameDay(selectedCalendarDate, selectedDay)) {
-                    setState(() {
-                      selectedCalendarDate = selectedDay;
-                      _focusedCalendarDate = focusedDay;
-                    });
-                  }
-                },
-              ),
-            ],
+                        fontSize: 16),
+                    weekendStyle: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16),
+                  ),
+                  headerStyle: const HeaderStyle(
+                      formatButtonVisible: false,
+                      titleTextStyle: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25),
+                      leftChevronIcon:
+                          Icon(Icons.chevron_left, color: Colors.black),
+                      rightChevronIcon: Icon(
+                        Icons.chevron_right,
+                        color: Colors.black,
+                      )),
+                  selectedDayPredicate: (currentSelectedDate) {
+                    return (isSameDay(
+                        selectedCalendarDate!, currentSelectedDate));
+                  },
+                  onDaySelected: (selectedDay, focusedDay) {
+                    // as per the documentation
+                    if (!isSameDay(selectedCalendarDate, selectedDay)) {
+                      setState(() {
+                        selectedCalendarDate = selectedDay;
+                        _focusedCalendarDate = focusedDay;
+                      });
+                    }
+                  },
+                ),
+                Container(
+                  padding: const EdgeInsets.only(left: 20),
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.55,
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30),
+                        topRight: Radius.circular(30)),
+                  ),
+                  child: Stack(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.only(top: 20),
+                            child: Text(
+                              'Today',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          SingleChildScrollView(
+                            child: Column(
+                              children: const [
+                                TaskList(
+                                    title: 'Task 1',
+                                    description: 'This is task 1 description',
+                                    iconImg: Icons.check_box,
+                                    iconColor: Colors.black),
+                                TaskList(
+                                    title: 'Task 2',
+                                    description: 'This is task 2 description',
+                                    iconImg: Icons.check_box,
+                                    iconColor: Colors.black),
+                                TaskList(
+                                    title: 'Task 3',
+                                    description: 'This is task 3 description',
+                                    iconImg: Icons.check_box,
+                                    iconColor: Colors.black),
+                                TaskList(
+                                    title: 'Task 4',
+                                    description: 'This is task 4 description',
+                                    iconImg: Icons.check_box,
+                                    iconColor: Colors.black),
+                              ],
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
